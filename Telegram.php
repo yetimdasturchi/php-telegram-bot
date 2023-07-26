@@ -192,7 +192,7 @@ class Telegram {
         $chat_id = (!is_null($chat_id)) ? $chat_id : $this->chat_id;
         $data = compact('chat_id', 'audio', 'duration');
         if (((!file_exists($audio)) && (filter_var($audio, FILTER_VALIDATE_URL) === FALSE))) {
-            $this->result = $this->sendRequest('sendVoice', $data);
+            $this->result = $this->request('sendVoice', $data);
             return $this;
         }
         $this->result = $this->uploadFile('sendVoice', $data);
